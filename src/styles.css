@@ -1,0 +1,99 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #202d29;
+  background: #f5f6f2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  --green: #234d40;
+  --muted: #7c8982;
+  --line: #e6e9e2;
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+button, select { font: inherit; }
+.app-shell { min-height: 100vh; }
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: #e8eee5;
+  min-height: 390px;
+  display: flex;
+  align-items: center;
+}
+.hero-inner { position: relative; z-index: 1; width: min(1120px, calc(100% - 64px)); margin: 0 auto; padding: 42px 0 38px; }
+.brand-mark {
+  width: 42px; height: 42px; display: grid; place-items: center; border-radius: 14px;
+  background: var(--green); color: #fff; font-size: 25px; font-weight: 750; margin-bottom: 28px;
+}
+.eyebrow { font-size: 10px; font-weight: 800; letter-spacing: .16em; color: #668174; margin: 0 0 12px; }
+.hero h1 { margin: 0; font-size: clamp(40px, 5.2vw, 66px); line-height: 1.05; letter-spacing: -.055em; font-weight: 650; max-width: 700px; }
+.hero h1 em { color: #4e7865; font-family: Georgia, serif; font-weight: 400; }
+.hero-copy { color: #64756b; font-size: 15px; margin: 18px 0 27px; max-width: 440px; line-height: 1.7; }
+.summary { display: flex; gap: 36px; }
+.summary div { display: flex; flex-direction: column; gap: 3px; }
+.summary strong { font-size: 23px; font-weight: 700; letter-spacing: -.04em; }
+.summary strong small { color: #849188; font-size: 13px; font-weight: 500; }
+.summary span { color: #728078; font-size: 11px; }
+.hero-decoration { position: absolute; border: 1px solid rgba(61, 105, 82, .12); border-radius: 50%; pointer-events: none; }
+.hero-decoration--one { width: 460px; height: 460px; right: -20px; top: -145px; }
+.hero-decoration--two { width: 320px; height: 320px; right: 50px; top: -75px; }
+.content { width: min(1120px, calc(100% - 64px)); margin: 0 auto; padding: 52px 0 24px; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 25px; }
+.section-heading h2 { font-size: 30px; letter-spacing: -.045em; margin: 0; font-weight: 650; }
+.section-copy { color: var(--muted); font-size: 13px; margin: 8px 0 0; }
+.filter { display: flex; flex-direction: column; gap: 7px; min-width: 220px; color: #758178; font-size: 11px; }
+.filter select { background: #fff; border: 1px solid #e0e5dc; color: #34463d; padding: 12px 36px 12px 13px; border-radius: 10px; outline-color: #72917e; cursor: pointer; }
+.room-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
+.room-card { min-width: 0; background: #fff; border: 1px solid #e8ebe5; border-radius: 16px; padding: 22px; display: flex; flex-direction: column; min-height: 300px; transition: transform .18s ease, box-shadow .18s ease; }
+.room-card:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(31, 57, 43, .06); }
+.card-topline { display: flex; align-items: center; justify-content: space-between; min-height: 38px; }
+.room-icon { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: #eef3ec; color: #426b55; font-size: 20px; }
+.full-badge { border-radius: 100px; padding: 6px 9px; background: #fae9e5; color: #b04f3e; font-size: 10px; font-weight: 750; }
+.room-type { color: #789080; font-size: 11px; margin: 21px 0 7px; text-transform: capitalize; }
+.room-card h2 { font-size: 19px; letter-spacing: -.025em; margin: 0; font-weight: 650; }
+.floor { font-size: 12px; color: #929b94; margin: 7px 0 21px; }
+.capacity { margin-top: auto; }
+.capacity-heading { display: flex; align-items: center; justify-content: space-between; font-size: 11px; color: #859087; margin-bottom: 10px; }
+.capacity-heading strong { font-size: 12px; color: #344b3e; }
+.capacity-heading strong span { color: #9aa49c; font-weight: 500; }
+.progress-track { height: 5px; border-radius: 20px; background: #edf0eb; overflow: hidden; }
+.progress-fill { height: 100%; background: #5f8a6c; border-radius: inherit; transition: width .25s ease; }
+.progress-fill--full { background: #d47763; }
+.availability { color: #88948b; font-size: 10px; margin: 8px 0 15px; }
+.reserve-button { width: 100%; border: 0; border-radius: 9px; padding: 12px 10px; background: var(--green); color: #fff; font-size: 12px; font-weight: 650; cursor: pointer; transition: background .15s ease; }
+.reserve-button:hover:not(:disabled) { background: #326752; }
+.reserve-button:focus-visible, .filter select:focus-visible { outline: 3px solid #a3c4ab; outline-offset: 2px; }
+.reserve-button:disabled { background: #f0f1ee; color: #a2aaa3; cursor: not-allowed; }
+.empty-state { padding: 35px; text-align: center; color: var(--muted); background: white; border-radius: 14px; }
+.footer { display: flex; justify-content: space-between; gap: 20px; padding: 29px 0 5px; color: #9aa49c; font-size: 11px; }
+.footer span:first-child { font-weight: 700; color: #66786c; }
+@media (max-width: 900px) {
+  .hero { min-height: 360px; }
+  .hero-inner, .content { width: min(100% - 48px, 720px); }
+  .room-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .room-card { padding: 20px; }
+  .section-heading h2 { font-size: 27px; }
+}
+@media (max-width: 560px) {
+  .hero { min-height: auto; }
+  .hero-inner, .content { width: calc(100% - 36px); }
+  .hero-inner { padding: 27px 0 30px; }
+  .brand-mark { margin-bottom: 24px; }
+  .hero h1 { font-size: 43px; }
+  .hero-copy { font-size: 13px; max-width: 320px; }
+  .summary { gap: 22px; }
+  .summary strong { font-size: 21px; }
+  .summary span { font-size: 10px; }
+  .hero-decoration--one { right: -260px; }
+  .hero-decoration--two { right: -190px; }
+  .content { padding-top: 35px; }
+  .section-heading { align-items: stretch; flex-direction: column; gap: 18px; }
+  .filter { min-width: 0; }
+  .room-grid { grid-template-columns: 1fr; gap: 12px; }
+  .room-card { min-height: 285px; }
+  .footer { flex-direction: column; gap: 8px; }
+}
